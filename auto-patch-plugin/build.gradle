@@ -1,15 +1,24 @@
 apply plugin: 'groovy'
+apply plugin: 'maven'
+
 compileGroovy {
-    sourceCompatibility = 1.7
-    targetCompatibility = 1.7
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 }
 
 dependencies {
-    compile gradleApi()
-    compile localGroovy()
-    compile 'com.android.tools.build:gradle:2.1.0'
-    compile 'org.javassist:javassist:3.20.0-GA'
-//    compile 'com.meituan.robust:autopatchbase:' + VERSION_NAME
-    compile project(':autopatchbase')
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:4.2.2'
+    implementation 'org.javassist:javassist:3.20.0-GA'
+    implementation project(':autopatchbase')
 }
-apply from: '../gradle_mvn_push.gradle'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('./repo'))
+        pom.groupId = 'net.csdn.robust'
+        pom.artifactId = 'auto-patch-plugin'
+        pom.version = '1.0.0'
+    }
+}
