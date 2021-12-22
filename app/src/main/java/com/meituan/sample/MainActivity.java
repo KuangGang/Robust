@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.meituan.robust.PatchExecutor;
+
 /**
  * For users of Robust you may only to use MainActivity or SecondActivity,other classes are used for test.<br>
  * <br>

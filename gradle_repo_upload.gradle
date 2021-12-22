@@ -1,0 +1,31 @@
+apply plugin: 'maven'
+
+def hasAndroidPlugin() {
+    return getPlugins().inject(false) { a, b ->
+        def classStr = b.getClass().name
+        def isAndroid = ("com.android.build.gradle.LibraryPlugin" == classStr) || ("com.android.build.gradle.AppPlugin" == classStr)
+        a || isAndroid
+    }
+}
+
+task sourcesJar(type: Jar) {
+    if (hasAndroidPlugin()) {
+        from android.sourceSets.main.java.srcDirs
+        classifier = 'sources'
+    } else {
+        from sourceSets.main.allSource
+        classifier = 'all'
+    }
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('./repo'))
+        pom.groupId = GROUP
+        pom.version = VERSION
+    }
+}

@@ -2,6 +2,7 @@ package robust.gradle.plugin
 
 import com.android.SdkConstants
 import com.android.build.api.transform.TransformInput
+import com.meituan.robust.Constants
 import javassist.ClassPool
 import javassist.CtClass
 
