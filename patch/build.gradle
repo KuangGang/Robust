@@ -35,7 +35,8 @@ configurations.all {
 }
 
 dependencies {
-    api project(':autopatchbase')
+    api 'net.csdn.robust:autopatchbase:1.0.0'
+//    api project(':autopatchbase')
 }
 
 apply from: '../gradle_repo_upload.gradle'
