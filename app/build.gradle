@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
 //apply plugin: 'auto-patch-plugin'
-//apply plugin: 'robust'
+apply plugin: 'robust'
 
 android {
     compileSdkVersion complie_sdk_version
@@ -66,8 +65,7 @@ configurations.all {
 }
 
 dependencies {
-//    implementation project(':patch')
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation project(':patch')
     implementation 'com.google.code.gson:gson:2.7'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.android.support:appcompat-v7:25.3.1'

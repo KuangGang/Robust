@@ -35,7 +35,7 @@ configurations.all {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    api project(':autopatchbase')
 }
 
 apply from: '../gradle_repo_upload.gradle'

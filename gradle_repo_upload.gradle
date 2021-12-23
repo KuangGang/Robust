@@ -24,7 +24,7 @@ artifacts {
 
 uploadArchives {
     repositories.mavenDeployer {
-        repository(url: uri('./repo'))
+        repository(url: uri('../repo'))
         pom.groupId = GROUP
         pom.version = VERSION
     }
