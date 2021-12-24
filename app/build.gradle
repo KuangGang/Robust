@@ -72,5 +72,5 @@ dependencies {
     implementation 'com.squareup.okhttp:okhttp:2.5.0'
     implementation 'com.google.code.gson:gson:2.3.1'
     implementation 'com.android.support:design:25.4.0'
-    implementation 'org.javassist:javassist:3.20.0-GA'
+    implementation 'org.javassist:javassist:3.22.0-GA'
 }
