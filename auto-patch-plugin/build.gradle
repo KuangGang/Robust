@@ -10,7 +10,7 @@ dependencies {
     implementation localGroovy()
     implementation 'com.android.tools.build:gradle:4.2.2'
     implementation 'org.javassist:javassist:3.22.0-GA'
-    implementation 'net.csdn.robust:autopatchbase:1.0.0'
+    implementation 'net.csdn.robust:autopatchbase:1.0.1'
 //    implementation project(':autopatchbase')
 }
 

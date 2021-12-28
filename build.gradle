@@ -17,8 +17,8 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
-        classpath 'net.csdn.robust:gradle-plugin:1.0.0'
-        classpath 'net.csdn.robust:auto-patch-plugin:1.0.0'
+        classpath 'net.csdn.robust:gradle-plugin:1.0.1'
+        classpath 'net.csdn.robust:auto-patch-plugin:1.0.1'
     }
 }
 
