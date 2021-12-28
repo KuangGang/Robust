@@ -11,6 +11,7 @@ import robust.gradle.plugin.asm.AsmInsertImpl
 import robust.gradle.plugin.javaassist.JavaAssistInsertImpl
 
 import java.util.zip.GZIPOutputStream
+
 /**
  * Created by mivanzhang on 16/11/3.
  *
@@ -59,7 +60,8 @@ class RobustTransform extends Transform implements Plugin<Project> {
             }
             if (!isDebugTask) {
                 project.android.registerTransform(this)
-                project.afterEvaluate(new RobustApkHashAction())
+                // TODO ignore robust apkhash
+//                project.afterEvaluate(new RobustApkHashAction())
                 logger.quiet "Register robust transform successful !!!"
             }
             if (null != robust.switch.turnOnRobust && !"true".equals(String.valueOf(robust.switch.turnOnRobust))) {
@@ -67,7 +69,8 @@ class RobustTransform extends Transform implements Plugin<Project> {
             }
         } else {
             project.android.registerTransform(this)
-            project.afterEvaluate(new RobustApkHashAction())
+            // TODO ignore robust apkhash
+//            project.afterEvaluate(new RobustApkHashAction())
         }
     }
 
@@ -98,7 +101,7 @@ class RobustTransform extends Transform implements Plugin<Project> {
 
         if (null != robust.switch.useAsm && "false".equals(String.valueOf(robust.switch.useAsm.text()))) {
             useASM = false;
-        }else {
+        } else {
             //默认使用asm
             useASM = true;
         }
@@ -146,10 +149,10 @@ class RobustTransform extends Transform implements Plugin<Project> {
         outputProvider.deleteAll()
         File jarFile = outputProvider.getContentLocation("main", getOutputTypes(), getScopes(),
                 Format.JAR);
-        if(!jarFile.getParentFile().exists()){
+        if (!jarFile.getParentFile().exists()) {
             jarFile.getParentFile().mkdirs();
         }
-        if(jarFile.exists()){
+        if (jarFile.exists()) {
             jarFile.delete();
         }
 
