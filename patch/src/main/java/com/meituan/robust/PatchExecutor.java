@@ -92,7 +92,7 @@ public class PatchExecutor extends Thread {
 
         try {
             File dexOutputDir = getPatchCacheDirPath(context, patch.getName() + patch.getMd5());
-            classLoader = new DexClassLoader(patch.getTempPath(), dexOutputDir.getAbsolutePath(),
+            classLoader = new DexClassLoader(patch.getLocalPath(), dexOutputDir.getAbsolutePath(),
                     null, PatchExecutor.class.getClassLoader());
         } catch (Throwable throwable) {
             throwable.printStackTrace();
